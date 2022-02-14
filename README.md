@@ -7,5 +7,5 @@
 </h1>
 <br/>
 	A program able to simulate a single headed - single tape Turing machine from a machine description provided in json.
-	It taught essential **Haskell** knowledge for further **functional programming**.
+	It taught essential <b>Haskell</b> knowledge for further <b>functional programming</b>.
 <br/>
