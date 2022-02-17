@@ -1,6 +1,6 @@
 name:                turing
 version:             0.1.0.0
-github:              "Ant0wan/turing"
+github:              "Ant0wan/Ft_turing"
 license:             BSD3
 author:              "Antoine Barthelemy"
 maintainer:          "antoine@linux.com"
@@ -11,13 +11,13 @@ extra-source-files:
 - ChangeLog.md
 
 # Metadata used when publishing your package
-# synopsis:            Short description of your package
-# category:            Example
+synopsis:            A 42 project implementating a Turing machine
+category:            "42"
 
 # To avoid duplicated efforts in documentation and dealing with the
 # complications of embedding Haddock markup inside cabal files, it is
 # common to point users to the README.md file.
-description:         Please see the README on GitHub at <https://github.com/Ant0wan/turing#readme>
+description:         Please see the README on GitHub at <https://github.com/Ant0wan/Ft_turing#readme>
 
 dependencies:
 - base >= 4.7 && < 5
@@ -26,7 +26,7 @@ library:
   source-dirs: src
 
 executables:
-  turing-exe:
+  turing:
     main:                Main.hs
     source-dirs:         app
     ghc-options:
