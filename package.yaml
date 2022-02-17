@@ -34,6 +34,14 @@ executables:
     - -rtsopts
     - -with-rtsopts=-N
     - -dynamic
+    - -Werror
+    - -Wextra
+    - -Wall
+    - -Wcompat
+    - -Wincomplete-record-updates
+    - -Wincomplete-uni-patterns
+    - -Wredundant-constraints
+    - -fno-warn-orphans
     dependencies:
     - turing
 
