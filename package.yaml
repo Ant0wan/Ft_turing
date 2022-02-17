@@ -1,10 +1,10 @@
 name:                turing
 version:             0.1.0.0
 github:              "Ant0wan/Ft_turing"
-license:             BSD3
+license:             GPL-3
 author:              "Antoine Barthelemy"
 maintainer:          "antoine@linux.com"
-copyright:           "BSD"
+copyright:           "GPL-3"
 
 extra-source-files:
 - README.md
