@@ -12,6 +12,8 @@
 
 
 
-| --- | --- | --- | --- | --- | --- |
-| Package |  	Multi-mode | 	Extensions | 	Maintenance |	Popularity (hackage downloads 2021-10-23) | 	Remark |
-| cmdargs |	X 	| TemplateHaskell, SYB generics, ViewPatterns, ... |  	GHC 9.0 build successful (2021-10-23) |	225k |	`unsafePerformIO` |
+
+Package |  	Multi-mode | 	Extensions | 	Maintenance |	Popularity (hackage downloads 2021-10-23) | 	Remark |
+--- | --- | --- | --- | --- | --- |
+ cmdargs |	X 	| TemplateHaskell, SYB generics, ViewPatterns, ... |  	GHC 9.0 build successful (2021-10-23) |	225k |	`unsafePerformIO` |
+ aeson | X | json | - | - | - |
