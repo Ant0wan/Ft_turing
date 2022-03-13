@@ -1,6 +1,4 @@
-module Lib
-    (
-    ) where
+module Lib where
 
 import Data.Aeson
 
