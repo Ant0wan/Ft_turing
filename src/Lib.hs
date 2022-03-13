@@ -1,12 +1,12 @@
 module Lib
-    ( usage
+    (
     ) where
 
 import Data.Aeson
 
 {- Turing Machine Name -}
 type Name = String
-data TapeAction = LEFT | RIGHT | HALT deriving (Enum)
+data TapeAction = LEFT | RIGHT | HALT deriving (Enum, Show, Eq)
 
 {- Alphabet -}
 type Symbol   = Char
