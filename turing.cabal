@@ -35,7 +35,9 @@ library
   build-depends:
       aeson
     , base >=4.7 && <5
+    , bytestring
     , cmdargs
+    , text
   default-language: Haskell2010
 
 executable turing
@@ -48,7 +50,9 @@ executable turing
   build-depends:
       aeson
     , base >=4.7 && <5
+    , bytestring
     , cmdargs
+    , text
     , turing
   default-language: Haskell2010
 
@@ -63,6 +67,8 @@ test-suite turing-test
   build-depends:
       aeson
     , base >=4.7 && <5
+    , bytestring
     , cmdargs
+    , text
     , turing
   default-language: Haskell2010
