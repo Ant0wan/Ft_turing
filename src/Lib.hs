@@ -2,18 +2,30 @@ module Lib
     ( usage
     ) where
 
-import System.Environment (getProgName)
+{- Turing Machine Name -}
+type Name     = String
 
-usage :: IO ()
-usage = do
-  name <- getProgName
-  let message = "usage: " ++ name ++ " [-h] jsonfile input\n\
-\\n\
-\positional arguments:\n\
-\  jsonfile\tjson description of the machine\n\
-\\n\
-\  input\t\tinput of the machine\n\
-\\n\
-\optional arguments:\n\
-\  -h, --help show this help message and exit"
-  putStrLn message
+{- Alphabet -}
+type Symbol   = Char
+type Alphabet = [Symbol]
+type Blank    = Symbol {- need to be an element fron the Alphabet type -}
+
+{- States -}
+type State    = String {- will need to be defined as a parsed element -> a record -}
+type States   = [State]
+type Initial  = State
+type Finals   = [State]
+
+{- Fonctions de transitions -}
+{- Put here -}
+
+
+{- Deterministic Turing Machine Definition -}
+data Machine =
+  Machine { name         :: Name
+          , alphabet     :: Alphabet
+          , blank        :: Blank
+          , states       :: States
+          , initialState :: Initial
+          , finalStates  :: Finals
+            } deriving (Show, Eq)
