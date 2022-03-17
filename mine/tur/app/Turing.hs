@@ -30,6 +30,9 @@ data MachineCfg = MachineCfg {
   , tapeCfg :: TapeCfg
 }
 
+instance Show TapeCfg where
+  show (TapeCfg l c r) = toList l ++ [maybe ' ' id c] ++ toList r
+
 instance Show MachineCfg where
   show (MachineCfg s t) =
     show t ++ "\n" ++ replicate (Seq.length $ leftSyms t) ' ' ++ "| q"
@@ -38,14 +41,14 @@ instance Show MachineCfg where
 
 -- | modif curr symbol by a new one then move tape head
 updateTapeCfg :: TapeCfg -> Symbol -> Direction -> TapeCfg
-updateTapeCfg (TapeCfg leftSyms _ rSyms) newSym MoveLeft =
+updateTapeCfg (TapeCfg lSyms _ rSyms) newSym MoveLeft =
   case Seq.viewr lSyms of EmptyR -> TapeCfg Seq.empty Nothing right
                           lInit :> lLast -> TapeCfg lInit (Just lLast) right
-                            where right = newSym <| rSyms
+    where right = newSym <| rSyms
 updateTapeCfg (TapeCfg lSyms _ rSyms) newSym MoveRight = 
   case Seq.viewl rSyms of EmptyL -> TapeCfg left Nothing Seq.empty
-                          rHead :> rTail -> TapeCfg left (Just rHead) rTail
-                            where left = lSyms |> newSym
+                          rHead :< rTail -> TapeCfg left (Just rHead) rTail
+    where left = lSyms |> newSym
 
 -- | Execute one transition step for given machine and config
 updateMachineCfg :: Machine -> MachineCfg -> MachineCfg
@@ -68,7 +71,7 @@ machineCfgFinal m (MachineCfg {currState  = c}) =
   c == acceptState m ||
   c == rejectState m
 
-Return requence of machine configs for given input word until final state
+-- Return requence of machine configs for given input word until final state
 runMachine :: Machine -> [Symbol] -> [MachineCfg]
 runMachine m =
   break' (machineCfgFinal m) . iterate (updateMachineCfg m) . initMachineCfg m
