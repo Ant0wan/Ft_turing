@@ -1,5 +1,7 @@
 module Turing where
 
+import Debug.Trace
+
 import           Data.Foldable (toList)
 import qualified Data.List as L
 import qualified Data.Sequence as Seq
@@ -14,9 +16,14 @@ type Symbol = Char
 -- | Tape head movement direction.
 data Direction = MoveLeft | MoveRight
 
+-- | original
+-- data Machine = Machine {
+--   transition :: State -> Maybe Symbol -> (State, Symbol, Direction)
+-- , startState, acceptState, rejectState :: State
+-- }
 data Machine = Machine {
   transition :: State -> Maybe Symbol -> (State, Symbol, Direction)
-, startState, acceptState, rejectState :: State
+, startState, eraseone, subone, skip, acceptState, rejectState :: State
 }
 
 data TapeCfg = TapeCfg {
@@ -41,6 +48,7 @@ instance Show MachineCfg where
 
 -- | modif curr symbol by a new one then move tape head
 updateTapeCfg :: TapeCfg -> Symbol -> Direction -> TapeCfg
+updateTapeCfg _ symbol _ | trace ("updateTapeCfg symbol: " ++ show symbol) False = undefined
 updateTapeCfg (TapeCfg lSyms _ rSyms) newSym MoveLeft =
   case Seq.viewr lSyms of EmptyR -> TapeCfg Seq.empty Nothing right
                           lInit :> lLast -> TapeCfg lInit (Just lLast) right
